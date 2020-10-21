@@ -12,31 +12,30 @@ import { useAppDispatch } from '../../store';
  const DiaryEntriesList: FC = () => {
     const { entries } = useSelector((state: RootState) => state);
     const dispatch = useAppDispatch();
-    const  id  = useParams();
-      
+    const   id   = useParams();
+      console.log(id);      
     useEffect(() => {
-      if(id != null)  {
+      if (id != null) {
         http
           .get<null, { entries: Entry[] }>(`/diaries/entries/${id}`)
           .then(({ entries: _entries }) => {
-            if(_entries) {
-                const sortByLastUpdated = _entries.sort((a, b) => {
-                    return dayjs(b.updatedAt).unix() - dayjs(a.updatedAt).unix();
-               });
-                dispatch(setEntries(sortByLastUpdated));
+            if (_entries) {
+              const sortByLastUpdated = _entries.sort((a, b) => {
+                return dayjs(b.updatedAt).unix() - dayjs(a.updatedAt).unix();
+              });
+              dispatch(setEntries(sortByLastUpdated));
             }
           });
       }
-    }, [id, dispatch])
-
-     return (
-       <div className="entries">
+    }, [id, dispatch]);
+  
+    return (
+      <div className="entries">
         <header>
           <Link to="/">
             <h3>← Go Back</h3>
-          </Link>  
-        </header>   
-
+          </Link>
+        </header>
         <ul>
           {entries.map((entry) => (
             <li
@@ -44,14 +43,14 @@ import { useAppDispatch } from '../../store';
               onClick={() => {
                 dispatch(setCurrentlyEditing(entry));
                 dispatch(setCanEdit(true));
-             }}
+              }}
             >
               {entry.title}
             </li>
-          ))}  
+          ))}
         </ul>
-       </div>           
-     )
- }
-
- export default DiaryEntriesList;
+      </div>
+    );
+  };
+  
+  export default DiaryEntriesList;
