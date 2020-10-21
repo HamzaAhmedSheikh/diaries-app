@@ -19,5 +19,5 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
             popup: "",
             backdrop: "",
         },
-    }),
- },
+    });
+};
