@@ -12,6 +12,6 @@ import editorReducer from './features/entry/editorSlice';
     user: userReducer,
     editor: editorReducer,      
  })
-
+  
  export type RootState = ReturnType<typeof rootReducer>;
  export default rootReducer;
