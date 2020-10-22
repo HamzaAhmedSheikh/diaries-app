@@ -14,7 +14,7 @@ export const handleErrors = (error: any, message = "An error ocurred") => {
 
 export const setupServer = (env?: string): Server => {
   return new Server({
-    // environment: env ?? "development",
+    environment: env ?? "development",
 
     models: {
       entry: Model.extend({
