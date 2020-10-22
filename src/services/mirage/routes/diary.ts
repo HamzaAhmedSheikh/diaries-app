@@ -2,8 +2,8 @@ import { Response, Request } from 'miragejs';
 import { handleErrors } from '../server';
 import { Diary } from '../../../interfaces/diary.interface';
 import { Entry } from '../../../interfaces/entry.interface';
-import { User } from '../../../interfaces/user.interface';
 import dayjs from 'dayjs';
+import { User } from '../../../interfaces/user.interface';
 
 
  export const create = (

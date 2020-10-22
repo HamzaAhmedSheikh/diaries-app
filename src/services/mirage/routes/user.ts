@@ -3,7 +3,7 @@ import { handleErrors } from '../server';
 import { User } from '../../../interfaces/user.interface';
 import { randomBytes } from 'crypto';
 
- const generateToken = () => randomBytes(8).toString('hex');
+ const generateToken = () => randomBytes(4).toString('hex');
 
  export interface AuthResponse {
     token: string;
