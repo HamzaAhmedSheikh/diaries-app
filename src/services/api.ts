@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 import { showAlert } from '../util';
 
-const http: AxiosInstance = axios.create({
-    baseURL: 'https://notes.app',
-});
+ const http: AxiosInstance = axios.create({ 
+     baseURL: 'https://diaries.app',
+  });
 
 http.defaults.headers.post['Content-Type'] = 'application/json';
 

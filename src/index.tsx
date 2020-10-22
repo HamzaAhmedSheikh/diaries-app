@@ -12,12 +12,10 @@ import * as serviceWorker from './serviceWorker';
       setupServer();
   }
 
-ReactDOM.render(
-  <React.StrictMode>
+ReactDOM.render(  
    <Provider store={store}>
     <App />     
-   </Provider>    
-  </React.StrictMode>,
+   </Provider> ,
   document.getElementById('root')
 );
 
