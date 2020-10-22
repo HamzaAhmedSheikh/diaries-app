@@ -1,5 +1,5 @@
 export interface Diary {
-    id?: string;
+    id?: string;    
     title: string;
     type: 'private' | 'public';
     createdAt?: string;

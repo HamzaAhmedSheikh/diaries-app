@@ -6,20 +6,16 @@ import dayjs from 'dayjs';
 import { User } from '../../../interfaces/user.interface';
 
 
- export const create = (
-   schema: any,
-   req: Request
- ): { user: User; diary: Diary } | Response => {
-   try {
-    const { title, type, userId } = JSON.parse(req.requestBody) as Partial<
-      Diary
-    >;
-    
+export const create = (
+  schema: any,
+  req: Request
+): { user: User; diary: Diary } | Response => {
+  try {
+    const { title, type, userId } = JSON.parse(req.requestBody) as Partial<Diary>;
     const exUser = schema.users.findBy({ id: userId });
     if (!exUser) {
       return handleErrors(null, 'No such user exists.');
     }
-
     const now = dayjs().format();
     const diary = exUser.createDiary({
       title,
@@ -37,6 +33,7 @@ import { User } from '../../../interfaces/user.interface';
     return handleErrors(error, 'Failed to create Diary.');
   }
 };
+
 
 export const addEntry = (
   schema: any,
@@ -65,6 +62,7 @@ export const addEntry = (
   }
 };
 
+
 export const getDiaries = (schema: any, req: Request): Diary[] | Response => {
   try {
     const user = schema.users.find(req.params.id);
@@ -73,6 +71,7 @@ export const getDiaries = (schema: any, req: Request): Diary[] | Response => {
     return handleErrors(error, 'Could not get user diaries.');
   }
 };
+
 
 export const getEntries = (
   schema: any,
@@ -85,6 +84,7 @@ export const getEntries = (
     return handleErrors(error, 'Failed to get Diary entries.');
   }
 };
+
 
 export const updateDiary = (schema: any, req: Request): Diary | Response => {
   try {
@@ -100,6 +100,7 @@ export const updateDiary = (schema: any, req: Request): Diary | Response => {
     return handleErrors(error, 'Failed to update Diary.');
   }
 };
+
 
 export const updateEntry = (schema: any, req: Request): Entry | Response => {
   try {

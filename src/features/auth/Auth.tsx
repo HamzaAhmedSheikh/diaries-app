@@ -19,14 +19,14 @@ const schema = Yup.object().shape({
 
 const Auth: FC = () => {
   const { handleSubmit, register, errors } = useForm<User>({  
-      resolver: yupResolver(schema)
+      // resolver: yupResolver(schema)
   });
 
   const [isLogin, setIsLogin] = useState(true);
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
 
-  const submitForm = (data: User) => {
+  const submitForm = (data: User) => {    
     const path = isLogin ? '/auth/login' : '/auth/signup';
     http
       .post<User, AuthResponse>(path, data)

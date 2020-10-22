@@ -2,6 +2,7 @@ import { Server, Model, Factory, Response, belongsTo, hasMany } from 'miragejs';
 import user from './routes/user';
 import * as diary from './routes/diary';
 
+
 export const handleErrors = (error: any, message = 'An error ocurred') => {
   console.error('Error: ', error);
   return new Response(400, undefined, {
@@ -11,6 +12,7 @@ export const handleErrors = (error: any, message = 'An error ocurred') => {
     },
   });
 };
+
 
 export const setupServer = (env?: string): Server => {
   return new Server({
@@ -31,15 +33,14 @@ export const setupServer = (env?: string): Server => {
 
     factories: {
       user: Factory.extend({
-        username: 'test',
-        password: 'password',
-        email: 'test@email.com',
+        username: "test",
+        password: "12345",
+        email: "diary@gmail.com",
       }),
     },
 
     seeds: (server): any => {
-      server.create('user');
-      console.log(server);      
+      server.create("user");
     },
 
     routes(): void {
@@ -59,4 +60,3 @@ export const setupServer = (env?: string): Server => {
     },
   });
 };
-

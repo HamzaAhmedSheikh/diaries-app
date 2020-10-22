@@ -9,10 +9,11 @@ import { setCurrentlyEditing, setCanEdit } from '../entry/editorSlice';
 import dayjs from 'dayjs';
 import { useAppDispatch } from '../../store';
 
+
 const DiaryEntriesList: FC = () => {
   const { entries } = useSelector((state: RootState) => state);
   const dispatch = useAppDispatch();
-  const  id  = useParams();
+  const { id }: any = useParams();
 
   useEffect(() => {
     if (id != null) {
@@ -29,22 +30,15 @@ const DiaryEntriesList: FC = () => {
     }
   }, [id, dispatch]);
 
+
   return (
     <div className="entries">
       <header>
-        <Link to="/">
-          <h3>&larr; Go Back</h3>
-        </Link>
+        <Link to="/"><h3>&larr; Go Back</h3></Link>
       </header>
       <ul>
         {entries.map((entry) => (
-          <li
-            key={entry.id}
-            onClick={() => {
-              dispatch(setCurrentlyEditing(entry));
-              dispatch(setCanEdit(true));
-            }}
-          >
+          <li key={entry.id} onClick={() => { dispatch(setCurrentlyEditing(entry)); dispatch(setCanEdit(true));}}>
             {entry.title}
           </li>
         ))}
@@ -52,5 +46,6 @@ const DiaryEntriesList: FC = () => {
     </div>
   );
 };
+
 
 export default DiaryEntriesList;
