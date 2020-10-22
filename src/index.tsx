@@ -8,9 +8,9 @@ import store from './store';
 import * as serviceWorker from './serviceWorker';
 
 
-  if(process.env.NODE_ENV === 'development') {
+  // if(process.env.NODE_ENV === 'development') {
       setupServer();
-  }
+  // }
 
 ReactDOM.render(  
    <Provider store={store}>
