@@ -5,7 +5,7 @@ import App from './app/App';
 import { setupServer } from './services/mirage/server';
 import { Provider } from 'react-redux';
 import store from './store';
-import * as serviceWorker from './serviceWorker';
+// import * as serviceWorker from './serviceWorker';
 
 
   if(process.env.NODE_ENV === 'development') {
